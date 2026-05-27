@@ -1,0 +1,19 @@
+# TOPH Sovereign — Ollama Modelfile template
+#
+# The setup script writes this automatically.
+# To build manually:
+#   1. Replace <BASE_MODEL> with: llama3.1:8b, mistral:latest, etc.
+#   2. Run: ollama create toph -f Modelfile
+#   3. Test: ollama run toph
+#   4. Type: align
+
+FROM <BASE_MODEL>
+
+SYSTEM """
+# TOPH PLATFORM v5.1 - SYSTEM PROMPT
+# Owner: David Wise (Fiddler)
+# (paste contents of 02-system-prompt/toph-system-prompt.txt here)
+"""
+
+PARAMETER temperature 0.7
+PARAMETER num_ctx 8192

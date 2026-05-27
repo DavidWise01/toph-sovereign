@@ -1,0 +1,24 @@
+{
+  "name": "toph-sovereign",
+  "version": "5.1.0",
+  "description": "TOPH Platform v5.1 — Sovereign AI infrastructure. No bootloader. No phone home. Your rules.",
+  "author": "David Wise (Fiddler)",
+  "private": true,
+  "scripts": {
+    "storage:init": "node 04-storage/init-storage.js",
+    "server":       "node server.js",
+    "ui":           "cd 03-frontend && npm run dev",
+    "ui:build":     "cd 03-frontend && npm run build",
+    "ui:install":   "cd 03-frontend && npm install",
+    "cortex":       "node 06-tools/cortex.js",
+    "start":        "concurrently --names \"SERVER,UI\" --prefix-colors \"cyan,green\" \"npm run server\" \"npm run ui\"",
+    "setup":        "npm run storage:init && npm run ui:install && echo. && echo TOPH storage initialized. Run: npm start"
+  },
+  "dependencies": {
+    "cors":    "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
